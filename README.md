@@ -14,6 +14,8 @@ Entidades:
            - Noticias: Actualidad sobre nuestras cabras, usuarios, centros y las adopciones realizadas.
 
 Integrantes: 
-            - Javier López Barba
-            - Rubén Parejo Martín
-            - David Villanueva García
+            - Javier López Barba.
+            - Rubén Parejo Martín.
+            - David Villanueva García.
+            
+            
