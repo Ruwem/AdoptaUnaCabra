@@ -16,6 +16,6 @@ Entidades:
             - Noticias: Actualidad sobre nuestras cabras, usuarios, centros y las adopciones realizadas.
 
 Integrantes: 
-           - Javier López Barba / j.lopezbarb@alumnos.urjc.es / @jLopezbarb
+           - Javier López Barba / j.lopezbarb@alumnos.urjc.es / @jLopezbarb                     
            - Rubén Parejo Martín /r.parejo@alumnos.urjc.es / @Ruwem
            - David Villanueva García / d.villanuevag@alumnos.urjc.es / @dvillanuevag
