@@ -13,11 +13,9 @@ Entidades:
             - Cabra: El individuo a adoptar por un usuario.
             - Centro: Lugar en el que se aloja cada cabra.
             - Usuario: Miembro de la página que busca adoptar una cabra.
-	- Noticias: Actualidad sobre nuestras cabras, usuarios, centros y las adopciones realizadas.
+            - Noticias: Actualidad sobre nuestras cabras, usuarios, centros y las adopciones realizadas.
 
 Integrantes: 
            - Javier López Barba.
            - Rubén Parejo Martín.
            - David Villanueva García.
-            
-            
