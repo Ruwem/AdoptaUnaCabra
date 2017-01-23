@@ -17,5 +17,5 @@ Entidades:
 
 Integrantes: 
            - Javier López Barba / j.lopezbarb@alumnos.urjc.es / @jLopezbarb                     
-           - Rubén Parejo Martín /r.parejo@alumnos.urjc.es / @Ruwem
+           - Rubén Parejo Martín /r.parejo@alumnos.urjc.es / @Ruwem                                         
            - David Villanueva García / d.villanuevag@alumnos.urjc.es / @dvillanuevag
