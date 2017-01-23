@@ -9,10 +9,10 @@ Funcionalidad pública: Cualquiera que acceda a la web puede ver las cabras disp
 
 Funcionalidad privada: Sólo los usuarios registrados pueden acceder al servicio de adopción de una de nuestras cabras.
             
-Entidades: 
-            - Cabra: El individuo a adoptar por un usuario.
-            - Centro: Lugar en el que se aloja cada cabra.
-            - Usuario: Miembro de la página que busca adoptar una cabra.
+Entidades:                                                                                                              
+            - Cabra: El individuo a adoptar por un usuario.                                                             
+            - Centro: Lugar en el que se aloja cada cabra.                                                              
+            - Usuario: Miembro de la página que busca adoptar una cabra.                                                        
             - Noticias: Actualidad sobre nuestras cabras, usuarios, centros y las adopciones realizadas.
 
 Integrantes:                                                                                                
