@@ -4,7 +4,7 @@ Nombre: AdoptaUnaCabra
 
 Descripción: Mediante esta página web, un usuario puede adoptar una cabra entre la selección que poseemos e ir actualizando las noticias de su cabra. 
 
-Funcionalidades:                                                                                                                    
+Funcionalidades:                                                                                                         
             - Pública: Cualquiera que acceda a la web puede ver las cabras dispuestas a la adopción, navegar por la página, buscar información acerca de la empresa y los centros de acogida. También puedes ver los perfiles de las cabras que han sido adoptadas.                                                                                
                                                                        - Privada: Sólo los usuarios registrados pueden acceder al servicio de adopción de una de nuestras cabras, modificar el perfil de las cabras que ha adoptado, comunicarte con los otros usuarios y marcar como favoritos centros, cabras y usuarios, para realizar un seguimiento de todas las noticias relaccionadas con estos.
             
