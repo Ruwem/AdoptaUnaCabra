@@ -320,7 +320,7 @@ section {
 
 section h2.section-heading {
     font-size: 40px;
-    margin-top: 0;
+    margin-top: 0px;
     margin-bottom: 15px
 }
 
@@ -484,8 +484,8 @@ footer ul.quicklinks {
     height: 80px;
     position: absolute;
     z-index: 100;
-    background-color: #fed136;
-    color: #fff;
+    background-color: white;
+    color: black;
     border-radius: 100%;
     border: 7px solid #f1f1f1;
     text-align: center
@@ -547,7 +547,7 @@ footer ul.quicklinks {
         width: 41%;
         float: left;
         padding: 0 20px 20px 30px;
-        text-align: right
+        text-align: right;
     }
     .timeline>li .timeline-image {
         width: 100px;
