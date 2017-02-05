@@ -19,3 +19,16 @@ Integrantes:
             - Javier López Barba / j.lopezbarb@alumnos.urjc.es / @jLopezbarb                     
             - Rubén Parejo Martín / r.parejo@alumnos.urjc.es / @Ruwem                                         
             - David Villanueva García / d.villanuevag@alumnos.urjc.es / @dvillanuevag
+            
+-------------------------------------------------------------------------------------------------------------
+
+    ![Página principal](http://prntscr.com/e4zdms)
+     Página principal de nuestra compañía, desde ella podemos llegar a todos los rincones de nuestra web.
+    
+    ![Tienda](http://prntscr.com/e4zebl)
+     Desde aquí podemos comprar a las cabras a un buen precio.
+     
+    ![Noticias](http://prntscr.com/e4zevul) 
+     Dentro del FaceGoat será aquí donde consultes las noticias de cada cabra.
+    
+           
