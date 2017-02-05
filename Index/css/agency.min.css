@@ -161,12 +161,12 @@ fieldset[disabled] .btn-xl:hover {
 }
 
 .navbar-custom {
-    background-color: #fed136 ;
+    background-color: #222;
     border-color: transparent
 }
 
 .navbar-custom .navbar-brand {
-    color: black;
+    color: #fed136;
     font-family: "Kaushan Script", "Helvetica Neue", Helvetica, Arial, cursive
 }
 
@@ -174,13 +174,13 @@ fieldset[disabled] .btn-xl:hover {
 .navbar-custom .navbar-brand:active,
 .navbar-custom .navbar-brand:focus,
 .navbar-custom .navbar-brand:hover {
-    color: red
+    color: #fec503
 }
 
 .navbar-custom .nav li a,
 .navbar-custom .navbar-toggle {
     font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #fed136;
+    color: #fff;
     text-transform: uppercase
 }
 
@@ -189,14 +189,14 @@ fieldset[disabled] .btn-xl:hover {
 }
 
 .navbar-custom .navbar-toggle {
-    background-color: white;
+    background-color: #fed136;
     border-color: #fed136;
     font-size: 12px
 }
 
 .navbar-custom .navbar-toggle:focus,
 .navbar-custom .navbar-toggle:hover {
-    background-color: white
+    background-color: #fed136
 }
 
 .navbar-custom .nav li a {
@@ -206,7 +206,7 @@ fieldset[disabled] .btn-xl:hover {
 
 .navbar-custom .nav li a:focus,
 .navbar-custom .nav li a:hover {
-    color: red;
+    color: #fed136;
     outline: 0
 }
 
@@ -235,9 +235,7 @@ fieldset[disabled] .btn-xl:hover {
         font-size: 2em;
         -webkit-transition: all .3s;
         -moz-transition: all .3s;
-        transition: all .3s;
-        color: #fed136;
-;
+        transition: all .3s
     }
     .navbar-custom .navbar-nav>.active>a {
         border-radius: 3px
@@ -320,7 +318,7 @@ section {
 
 section h2.section-heading {
     font-size: 40px;
-    margin-top: 0px;
+    margin-top: 0;
     margin-bottom: 15px
 }
 
@@ -547,7 +545,7 @@ footer ul.quicklinks {
         width: 41%;
         float: left;
         padding: 0 20px 20px 30px;
-        text-align: right;
+        text-align: right
     }
     .timeline>li .timeline-image {
         width: 100px;
@@ -844,4 +842,8 @@ img::selection {
 
 img::-moz-selection {
     background: 0 0
+}
+
+.li-final {
+    color: black
 }

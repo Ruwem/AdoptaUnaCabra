@@ -5462,7 +5462,7 @@ textarea.input-group-sm>.input-group-btn>.btn {
     }
     .navbar-default .navbar-nav .open .dropdown-menu>li>a:focus,
     .navbar-default .navbar-nav .open .dropdown-menu>li>a:hover {
-        color: #444;
+        color: #333;
         background-color: transparent
     }
     .navbar-default .navbar-nav .open .dropdown-menu>.active>a,
