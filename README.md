@@ -9,7 +9,6 @@ Funcionalidades:
                                                                                                                                            
 - Privada: Sólo los usuarios registrados pueden acceder al servicio de adopción de una de nuestras cabras, modificar el perfil de las cabras que ha adoptado, comunicarte con los otros usuarios y marcar como favoritos centros, cabras y usuarios, para realizar un seguimiento de todas las noticias relaccionadas con estos.
 
-<img src="Logueado.PNG">
             
 Entidades:                                                                                                              
             - Cabra: El individuo a adoptar por un usuario.                                                             
@@ -24,13 +23,22 @@ Integrantes:
             
 -------------------------------------------------------------------------------------------------------------
 
-    ![Página principal](http://prntscr.com/e4zdms)
-     Página principal de nuestra compañía, desde ella podemos llegar a todos los rincones de nuestra web.
+Esquema parte privada.
+
+   <img src="Logueado.PNG">
+
+Esquema parte pública.
+
+   <img src="Sin%20loguear.PNG">
     
-    ![Tienda](http://prntscr.com/e4zebl)
-     Desde aquí podemos comprar a las cabras a un buen precio.
-     
-    ![Noticias](http://prntscr.com/e4zevul) 
-     Dentro del FaceGoat será aquí donde consultes las noticias de cada cabra.
-    
+Index    
+
+<img src="Pantallazos/Inicio.png">
            
+Tienda
+
+<img src="Pantallazos/Tienda.png">
+
+Noticias
+
+<img src="Pantallazos/Noticias.png">
