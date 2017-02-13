@@ -166,7 +166,7 @@ fieldset[disabled] .btn-xl:hover {
 }
 
 .navbar-custom .navbar-brand {
-    color: #fed136;
+    color: #00ADEF;
     font-family: "Kaushan Script", "Helvetica Neue", Helvetica, Arial, cursive
 }
 
@@ -174,13 +174,13 @@ fieldset[disabled] .btn-xl:hover {
 .navbar-custom .navbar-brand:active,
 .navbar-custom .navbar-brand:focus,
 .navbar-custom .navbar-brand:hover {
-    color: #fec503
+    color: #0d7faa
 }
 
 .navbar-custom .nav li a,
 .navbar-custom .navbar-toggle {
     font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #fed136;
+    color: #00ADEF;
     text-transform: uppercase
 }
 
@@ -209,7 +209,7 @@ fieldset[disabled] .btn-xl:hover {
 
 .navbar-custom .nav li a:focus,
 .navbar-custom .nav li a:hover {
-    color: #fec503;
+    color: #0d7faa;
     /*modificado*/
     outline: 0
 }
@@ -228,7 +228,7 @@ fieldset[disabled] .btn-xl:hover {
 
 @media (min-width:768px) {
     .navbar-custom {
-        background-color: transparent;
+        background-color: black;
         padding: 25px 0;
         -webkit-transition: padding .3s;
         -moz-transition: padding .3s;
@@ -722,7 +722,7 @@ ul.social-buttons {
 
 ul.social-buttons li a {
     display: block;
-    background-color: #222;
+    background-color: #0d7faa;
     height: 40px;
     width: 40px;
     border-radius: 100%;
@@ -738,7 +738,7 @@ ul.social-buttons li a {
 ul.social-buttons li a:active,
 ul.social-buttons li a:focus,
 ul.social-buttons li a:hover {
-    background-color: #fed136
+    background-color: #0d7faa
 }
 
 .btn.active,

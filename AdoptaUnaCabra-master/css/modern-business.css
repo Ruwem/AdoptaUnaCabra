@@ -69,10 +69,6 @@ header.carousel .fill {
 
 /* Footer Styles */
 
-footer {
-    margin: 50px 0;
-}
-
 /* Responsive Styles */
 
 @media(max-width:991px) {
@@ -92,56 +88,160 @@ footer {
     }
 }
 
+
+
+.navbar-custom {
+    background-color: #222;
+    border-color: transparent
+}
+
+.navbar-custom .navbar-brand {
+    color: #00ADEF;
+    font-family: "Kaushan Script", "Helvetica Neue", Helvetica, Arial, cursive
+}
+
+.navbar-custom .navbar-brand.active,
+.navbar-custom .navbar-brand:active,
+.navbar-custom .navbar-brand:focus,
+.navbar-custom .navbar-brand:hover {
+    color: #0d7faa
+}
+
+.navbar-custom .nav li a,
+.navbar-custom .navbar-toggle {
+    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #00ADEF;
+    text-transform: uppercase
+}
+
+.navbar-custom .navbar-collapse {
+    border-color: rgba(255, 255, 255, .02)
+}
+
+.navbar-custom .navbar-toggle {
+    background-color: #0d7faa;
+    border-color: #ddd;
+    font-size: 12px
+}
+
+.navbar-custom .navbar-toggle:focus,
+.navbar-custom .navbar-toggle:hover {
+    background-color: #ddd
+}
+
+.navbar-custom .nav li a {
+    font-weight: 400;
+    letter-spacing: 1px
+}
+
+
+/ Mod /
+
+.navbar-custom .nav li a:focus,
+.navbar-custom .nav li a:hover {
+    color: #0d7faa;
+    /*modificado*/
+    outline: 0
+}
+
+.navbar-custom .navbar-nav>.active>a {
+    border-radius: 0;
+    color: #fff;
+    background-color: #fed136
+}
+
+.navbar-custom .navbar-nav>.active>a:focus,
+.navbar-custom .navbar-nav>.active>a:hover {
+    color: #fff;
+    background-color: #fec503
+}
+
+@media (min-width:768px) {
+    .navbar-custom {
+        background-color: black;
+        padding: 25px 0;
+        -webkit-transition: padding .3s;
+        -moz-transition: padding .3s;
+        transition: padding .3s;
+        border: none
+    }
+    .navbar-custom .navbar-brand {
+        font-size: 2em;
+        -webkit-transition: all .3s;
+        -moz-transition: all .3s;
+        transition: all .3s
+    }
+    .navbar-custom .navbar-nav>.active>a {
+        border-radius: 3px
+    }
+    .navbar-custom.affix {
+        background-color: #222;
+        padding: 10px 0
+    }
+    .navbar-custom.affix .navbar-brand {
+        font-size: 1.5em
+    }
+}
+.navbar-min .navbar-min.active,
+.navbar-min .navbar-min:active,
+.navbar-min .navbar-min:focus,
+.navbar-min .navbar-min:hover {
+    color: red
+}
+
+/* Footer de cabra que hay que meter en los css de cada uno*/
+footer span.copyright,
+footer ul.quicklinks {
+    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif
+}
+
 footer {
-    clear: both;
-    right: 0;
-    bottom: 0;
-    left: 0;
     padding: 25px 0;
-    text-align: center;
-    background-color: white;
-    ;
+    text-align: center
 }
 
 footer span.copyright {
     line-height: 40px;
-    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-transform: uppercase;
-    text-transform: none;
-}
-
-ul.social-buttons {
-    margin-bottom: 0;
-}
-
-ul.social-buttons li a {
-    display: block;
-    background-color: #222222;
-    height: 40px;
-    width: 40px;
-    border-radius: 100%;
-    font-size: 20px;
-    line-height: 40px;
-    color: white;
-    outline: none;
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    transition: all 0.3s;
+    text-transform: none
 }
 
 footer ul.quicklinks {
     margin-bottom: 0;
     line-height: 40px;
-    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-transform: uppercase;
-    text-transform: none;
-}
-/*Fin del footer*/
-
-.navbar-mod {
-    background-color: black
+    text-transform: none
 }
 
-.let-color {
-    color: #1ab188
+ul.social-buttons {
+    margin-bottom: 0
+}
+
+ul.social-buttons li a {
+    display: block;
+    background-color: #0d7faa;
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+    font-size: 20px;
+    line-height: 40px;
+    color: #fff;
+    outline: 0;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s
+}
+
+ul.social-buttons li a:active,
+ul.social-buttons li a:focus,
+ul.social-buttons li a:hover {
+    background-color: #0d7faa
+}
+
+footer {
+    position: absolute;
+    right: 0;
+    left: 0;
+    padding: 25px;
+    text-align: center;
 }
