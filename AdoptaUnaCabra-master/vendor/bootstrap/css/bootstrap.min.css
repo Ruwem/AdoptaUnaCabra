@@ -1408,13 +1408,13 @@ textarea {
 }
 
 a {
-    color: #337ab7;
+    color: #f0ad4e;
     text-decoration: none
 }
 
 a:focus,
 a:hover {
-    color: #23527c;
+    color: #f0ad4e;
     text-decoration: underline
 }
 
@@ -5664,7 +5664,7 @@ fieldset[disabled] .navbar-inverse .btn-link:hover {
     padding: 6px 12px;
     margin-left: -1px;
     line-height: 1.42857143;
-    color: #337ab7;
+    color: #000000;
     text-decoration: none;
     background-color: #fff;
     border: 1px solid #ddd
@@ -5688,7 +5688,7 @@ fieldset[disabled] .navbar-inverse .btn-link:hover {
 .pagination>li>span:focus,
 .pagination>li>span:hover {
     z-index: 2;
-    color: #23527c;
+    color: #f0ad4e;
     background-color: #eee;
     border-color: #ddd
 }
@@ -5702,7 +5702,7 @@ fieldset[disabled] .navbar-inverse .btn-link:hover {
     z-index: 3;
     color: #fff;
     cursor: default;
-    background-color: #337ab7;
+    background-color: #f0ad4e;
     border-color: #337ab7
 }
 
