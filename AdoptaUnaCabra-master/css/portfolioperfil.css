@@ -5,8 +5,7 @@
  */
 
 body {
-    padding-top: 70px;
-    /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 }
 
 .portfolio-item {
@@ -105,13 +104,13 @@ body {
         font-size: 1.5em
     }
 }
-
 .navbar-min .navbar-min.active,
 .navbar-min .navbar-min:active,
 .navbar-min .navbar-min:focus,
 .navbar-min .navbar-min:hover {
     color: red
 }
+
 
 footer span.copyright,
 footer ul.quicklinks {
@@ -165,11 +164,6 @@ footer {
     position: absolute;
     right: 0;
     left: 0;
-    padding: text-align: center;
-}
-
-.btn-comprar {
-    position: absolute;
-    bottom: 2em;
-    right: 2em;
+    padding:
+    text-align: center;
 }
