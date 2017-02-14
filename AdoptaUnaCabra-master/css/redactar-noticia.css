@@ -13,6 +13,8 @@ footer ul.quicklinks {
 }
 
 footer {
+    position: absolute;
+    bottom: 0;
     right: 0;
     left: 0;
     padding: 25px;
