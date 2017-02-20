@@ -3,7 +3,7 @@ h1 {
 }
 
 body {
-    padding-top: 120px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    padding-top: 12em; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 }
 
 /* Footer de cabra que hay que meter en los css de cada uno*/
@@ -13,12 +13,12 @@ footer ul.quicklinks {
 }
 
 footer {
-    position: absolute;
     bottom: 0;
     right: 0;
     left: 0;
     padding: 25px;
     text-align: center;
+    margin-top: 5em;
 }
 
 footer span.copyright {
