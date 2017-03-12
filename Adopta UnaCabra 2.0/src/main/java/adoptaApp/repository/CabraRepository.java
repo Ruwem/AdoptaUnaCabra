@@ -1,0 +1,16 @@
+package adoptaApp.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import adoptaApp.entity.Cabra;
+import java.lang.String;
+import java.util.List;
+
+
+
+
+public interface CabraRepository extends JpaRepository<Cabra,Long>{
+
+	public List<Cabra> findByRaza(String raza);
+	public List<Cabra> findByNombre(String nombre);
+}
