@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -19,28 +20,31 @@ public class Noticia {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
 	
-	private String nombre,titulo,descripcion,cuerpo;
+	private String titulo,descripcion,cuerpo;
 	private Date date;
 	
 	@OneToOne
 	private Persona author;
 	
-	@OneToMany(cascade = CascadeType.ALL)
+	@ManyToMany(mappedBy = "news")
 	private List<Cabra> cabras;
+	
+	@ManyToMany(mappedBy = "news")
+	private List <Centro> centros;
 	
 	protected Noticia (){
 		
 	}
 
-	public Noticia(String nombre, String titulo, String descripcion, String cuerpo, Date date, Persona author) {
+	public Noticia( String titulo, String descripcion, String cuerpo, Date date, Persona author) {
 		super();
-		this.nombre = nombre;
 		this.titulo = titulo;
 		this.descripcion = descripcion;
 		this.cuerpo = cuerpo;
 		this.date = date;
 		this.author = author;
 		this.cabras = new ArrayList<>();
+		this.centros = new ArrayList<>();
 	}
 
 	public long getId() {
@@ -51,13 +55,6 @@ public class Noticia {
 		this.id = id;
 	}
 
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
 
 	public String getTitulo() {
 		return titulo;

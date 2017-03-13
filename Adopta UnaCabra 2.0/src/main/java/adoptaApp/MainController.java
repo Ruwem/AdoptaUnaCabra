@@ -28,7 +28,7 @@ public class MainController{
 	public String about(Model model){
 		return "about";
 	}
-	@RequestMapping("/add-cabra")
+	@RequestMapping("/addcabra")
 	public String addCabra(Model model){
 		return "add-cabra";
 	}
