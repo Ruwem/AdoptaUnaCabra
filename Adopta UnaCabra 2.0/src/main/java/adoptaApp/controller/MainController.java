@@ -22,25 +22,11 @@ public class MainController{
 		return "centros";
 	}
 	
-	@RequestMapping("/formulario")
+	@RequestMapping("/login")
 	public String formulario(Model model){
 		return "formulario";
 	}
 	
-	@RequestMapping("/about")
-	public String about(Model model){
-		return "about";
-	}
-	
-	@RequestMapping("/addcabra")
-	public String addCabra(Model model){
-		return "add-cabra";
-	}
-	
-	@RequestMapping("/perfilcabra")
-	public String perfilcabra(Model model){
-		return "perfil-cabra";
-	}
 	
 	@RequestMapping("/compracabraperfil")
 	public String compracabraperfil(Model model){

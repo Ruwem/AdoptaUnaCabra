@@ -1,6 +1,6 @@
 package adoptaApp.entity;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,14 +13,17 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import adoptaApp.util.Raza;
+
 @Entity
 public class Cabra {
 
 		@Id
 		@GeneratedValue(strategy=GenerationType.AUTO)
-		private long id;
+		private Integer id;
 		
-		private String nombre, raza;
+		private String nombre;
+		private String raza;
 		private Date nacimiento;
 		private double price, weight;
 		
@@ -41,7 +44,12 @@ public class Cabra {
 		
 		public Cabra(String nombre, String raza, Date nacimiento, double price, double weight){
 			this.nombre=nombre;
-			this.raza=raza;
+			if(Raza.contains(raza)){
+				this.raza = raza;
+			}else{
+				this.setRaza(Raza.Desconocido);
+			}
+			
 			this.nacimiento=nacimiento;
 			this.price = price;
 			this.weight = weight;
@@ -95,13 +103,6 @@ public class Cabra {
 			this.followers = followers;
 		}
 
-		public long getId() {
-			return id;
-		}
-
-		public void setId(long id) {
-			this.id = id;
-		}
 
 		public String getNombre() {
 			return nombre;
@@ -115,8 +116,8 @@ public class Cabra {
 			return raza;
 		}
 
-		public void setRaza(String raza) {
-			this.raza = raza;
+		public void setRaza(Raza raza) {
+			this.raza = raza.toString();
 		}
 
 		public Date getNacimiento() {

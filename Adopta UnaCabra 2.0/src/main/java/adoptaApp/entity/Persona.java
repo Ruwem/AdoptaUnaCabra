@@ -20,7 +20,7 @@ public class Persona {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private long id;
+	private Integer id;
 	
 	private String nombre,correo;
 	private Date birthday;
@@ -36,8 +36,7 @@ public class Persona {
 	protected Persona(){
 		
 	}
-	public Persona(long id, String nombre ,String correo, Date birthday){
-		this.id = id;
+	public Persona( String nombre ,String correo, Date birthday){
 		this.nombre = nombre;
 		this.correo = correo;
 		this.birthday = birthday;
@@ -64,12 +63,7 @@ public class Persona {
 	public void setNews(List<Noticia> news) {
 		this.news = news;
 	}
-	public long getId() {
-		return id;
-	}
-	public void setId(long id) {
-		this.id = id;
-	}
+
 	public String getNombre() {
 		return nombre;
 	}

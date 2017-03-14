@@ -17,7 +17,7 @@ public class Centro {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private long id;
+	private Integer id;
 	
 	private String nombre, lugar,email;
 	private  int telephone;
@@ -35,9 +35,8 @@ public class Centro {
 	
 
 
-	public Centro(long id, String nombre, String lugar, String email, int telephone) {
+	public Centro( String nombre, String lugar, String email, int telephone) {
 		super();
-		this.id = id;
 		this.nombre = nombre;
 		this.lugar = lugar;
 		this.email = email;
@@ -92,16 +91,6 @@ public class Centro {
 
 	public void setCabras(List<Cabra> cabras) {
 		this.cabras = cabras;
-	}
-
-
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
 	}
 
 

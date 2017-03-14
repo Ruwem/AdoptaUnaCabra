@@ -18,7 +18,7 @@ public class Noticia {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private long id;
+	private Integer id;
 	
 	private String titulo,descripcion,cuerpo;
 	private Date date;
@@ -45,14 +45,6 @@ public class Noticia {
 		this.author = author;
 		this.cabras = new ArrayList<>();
 		this.centros = new ArrayList<>();
-	}
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
 	}
 
 
