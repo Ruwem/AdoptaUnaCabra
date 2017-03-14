@@ -82,5 +82,11 @@ public class Persona {
 	public void setCorreo(String correo) {
 		this.correo = correo;
 	}
+	public Date getBirthday() {
+		return birthday;
+	}
+	public void setBirthday(Date birthday) {
+		this.birthday = birthday;
+	}
 	
 }
