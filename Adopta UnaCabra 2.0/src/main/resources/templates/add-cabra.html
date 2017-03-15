@@ -3,7 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
+     <base href="/">
     <title>Redactar noticia</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
@@ -30,56 +32,219 @@
                     </li>
                     <li> <a class="page-scroll" href="/centros">Centros</a> </li>
                     <li> <a class="page-scroll" href="/">Tienda</a> </li>
-                    <li> <a class="page-scroll" href="/listadonoticias">FaceGoat</a> </li>
-                    <li> <a class="page-scroll" href="/formulario">Login</a> </li>
+                    <li> <a class="page-scroll" href="/noticias">FaceGoat</a> </li>
+                    <li> <a class="page-scroll" href="/login">Login</a> </li>
                 </ul>
             </div>
         </div>
     </nav>
-    <div class="container well">
+    <div class="container well wrapper">
         <div class="well">
             <h1>Agregar cabra</h1> </div>
         <div class="row">
             <!-- edit form column -->
             <div class="col-md-12 personal-info well">
-                <form class="form-horizontal" role="form">
+                <form class="form-horizontal" role="form" action="/perfil/id/addcabra/nueva" method="post">
                     <div class="form-group">
                         <label class="col-lg-3 control-label">Nombre</label>
                         <div class="col-lg-8">
-                            <input class="form-control" type="text" value=""> </div>
+                            <input class="form-control" name="name" type="text" value=""> </div>
                     </div>
-                    <div class="form-group">
-                        <label class="col-lg-3 control-label">Raza</label>
-                        <div class="col-lg-8">
-                            <input class="form-control" type="text" value=""> </div>
+	                    <div class="form-group">
+	                        <label class="col-lg-3 control-label">Raza</label>
+	            			<div class="col-lg-8">
+							<select class="form-control" name="raza">
+							
+								<option>DESCONOCIDO</option>
+								<option>ABAZA</option>
+								<option>ABERGELLE</option>
+								<option>ADAMELLO BLOND</option>
+								<option>ADI KEÇI</option>
+								<option>AFAR</option>
+								<option>AGEW</option>
+								<option>AGRUPACION DE LAS MESETAS</option>
+								<option>ALBANTINAH</option>
+								<option>ALGARVIA</option>
+								<option>ALJABAL ALAKHDAR</option>
+								<option>ALPINE</option>
+								<option>ALTAIMOUNTAIN</option>
+								<option>ANDAMAN LOCAL</option>
+								<option>ANGLO NUBIAN</option>
+								<option>ANGORA</option>
+								<option>APPENZELL GOAT</option>
+								<option>ARADI</option>
+								<option>ARAPAWA</option>
+								<option>ARGENTATA DELL ETNA</option>
+								<option>ARSI BALE</option>
+								<option>ASAM HILL</option>
+								<option>ASMARI</option>
+								<option>ASPROMONTE</option>
+								<option>ASWAD</option>
+								<option>ATTAOUIA</option>
+								<option>ATTAPADDY BALCK</option>
+								<option>AUCKLAND ISLAND</option>
+								<option>AUSTRALIAN CASHMERE</option>
+								<option>AUSTRALIAN HERITAGE ANGORA</option>
+								<option>AUSTRALIAN MINIATURE GOAT</option>
+								<option>AUSTRLIAN BROWN</option>
+								<option>AZPI GORRI</option>
+								<option>AZUL</option>
+								<option>BAGOT</option>
+								<option>BANATIAN WHITE</option>
+								<option>BARBARI</option>
+								<option>BELGIAN FAWN</option>
+								<option>BENADIR</option>
+								<option>BHUJ</option>
+								<option>BILBERRY</option>
+								<option>BIONDA DELL ADAMELLO</option>
+								<option>BLACK BENGAL</option>
+								<option>BOER</option>
+								<option>BOOTED</option>
+								<option>BREETAL</option>
+								<option>BRITISH ALPINE</option>
+								<option>BROWN SHORTHAIR</option>
+								<option>CANARY ISLAND</option>
+								<option>CANINDÉ</option>
+								<option>CARPATHIAN</option>
+								<option>CHAMOIS COLOURED GOAT</option>
+								<option>CHANGTHANGI</option>
+								<option>CHAPPAR</option>
+								<option>CHARNEQUEIRA</option>
+								<option>CHENGDE POLLED</option>
+								<option>CHENGDU BROWN</option>
+								<option>CHIGU</option>
+								<option>CHUÉ</option>
+								<option>CHYANGRA</option>
+								<option>CORSICAN</option>
+								<option>DAMANI</option>
+								<option>DAMASCUS</option>
+								<option>DANISH LANDRACE</option>
+								<option>DERA DIN PANAH</option>
+								<option>DON</option>
+								<option>DUAN</option>
+								<option>DUCH TOGGENBURG</option>
+								<option>DUTCH LANDRACE</option>
+								<option>ERZGERBIRGE</option>
+								<option>FAINTING</option>
+								<option>MYOTONIC</option>
+								<option>FINNISH LANDRACE</option>
+								<option>GARGANICA</option>
+								<option>GIRGENTANA</option>
+								<option>GÖINGEGET</option>
+								<option>GOLDEN GUERNSEY</option>
+								<option>GRISSONS STRIPED</option>
+								<option>GUDI</option>
+								<option>HAILUN</option>
+								<option>HAIMEN</option>
+								<option>HASI</option>
+								<option>HEJAZI</option>
+								<option>HEXI CASHMERE</option>
+								<option>HONGTONG</option>
+								<option>HUAIPI</option>
+								<option>HUAITOUTALA</option>
+								<option>HUNGARIAN IMPROVED</option>
+								<option>ICELANDIC</option>
+								<option>IRISH</option>
+								<option>JAMNAPARI</option>
+								<option>JINING GREY</option>
+								<option>JONICA</option>
+								<option>KAGHANI</option>
+								<option>KALAHARI RED</option>
+								<option>KALBIAN</option>
+								<option>KAMORI</option>
+								<option>KIKO</option>
+								<option>KINDER</option>
+								<option>KOREAN BLACK GOAT</option>
+								<option>KRI KRI</option>
+								<option>LA MANCHA</option>
+								<option>LAOSHAN</option>
+								<option>MAJORERA</option>
+								<option>MALTESE</option>
+								<option>MASSIF CENTRAL</option>
+								<option>MESSINESE</option>
+								<option>MINI OBERHASLI</option>
+								<option>MOUNTAIN GOAT</option>
+								<option>MURCIA GRANADA</option>
+								<option>MURCIANA</option>
+								<option>NACHI</option>
+								<option>NIGERIA DWARF</option>
+								<option>NIGORA GOAT</option>
+								<option>NORTH AMERICAN CASHMERE</option>
+								<option>NORWEGIAN</option>
+								<option>OBERHASLI</option>
+								<option>OROBICA</option>
+								<option>PEACOCK</option>
+								<option>PHILIPINNE</option>
+								<option>POITOU</option>
+								<option>PYGMY</option>
+								<option>PYRENEAN</option>
+								<option>QINSHAN</option>
+								<option>RED BOER</option>
+								<option>RED MEDITERRANEAN</option>
+								<option>REPARTIDA</option>
+								<option>ROVE</option>
+								<option>RUSSIAN WHITE</option>
+								<option>SAANEN</option>
+								<option>SABLE SAANEN</option>
+								<option>SAHELIAN</option>
+								<option>SAN CLEMENTE ISLAND</option>
+								<option>SARDA</option>
+								<option>SHORT EARED SOMALI</option>
+								<option>SIROHI</option>
+								<option>SOMALI</option>
+								<option>SPANISH</option>
+								<option>STIEFELGEISS</option>
+								<option>SURATI</option>
+								<option>SWEDDISH LANDRACE</option>
+								<option>SYRIAN MOUNTAIN GOAT</option>
+								<option>TAUERNSHECK</option>
+								<option>THURINGIAN</option>
+								<option>TOGGENBURG</option>
+								<option>UZBEK BLACK</option>
+								<option>VALAIS BLACKNECK</option>
+								<option>VATANI</option>
+								<option>VERATA</option>
+								<option>WEST AFRICAN DWARF</option>
+								<option>WHITE SHORTHAIRED</option>
+								<option>XINJIANG</option>
+								<option>XUHAI</option>
+								<option>YEMEN MOUNTAIN</option>
+								<option>ZALAWADI</option>
+								<option>ZHIWULIN BLACK</option>
+								<option>ZHONGWEI</option>
+							</select>
+							</div>
+
                     </div>
-                    <div class="form-group">
-                        <label class="col-lg-3 control-label">Sexo</label>
-                        <div class="col-lg-8">
-                            <input class="form-control" type="text" value=""> </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-lg-3 control-label">Edad</label>
-                        <div class="col-lg-8">
-                            <input class="form-control" type="text" value=""> </div>
-                    </div>
+	                    <div class="form-group">
+	                        <label class="col-lg-3 control-label">Sexo</label>
+	            			<div class="centered col-lg-8">
+							<select class="form-control" id="exampleSelect1" name="sex">
+							      <option>Macho</option>
+							      <option>Hembra</option>
+							</select>
+							</div>
+	                    </div>
+					<div class="form-group">
+  						<label class="col-lg-3 control-label" for="date">Fecha Nacimiento</label>  
+  						<div class="col-lg-8">
+  						<input class="form-control" id="date" name="date"  placeholder="MM/DD/YYY" type="text"/>
+  						</div>
+  					</div>
                     <div class="form-group">
                         <label class="col-lg-3 control-label">Peso</label>
                         <div class="col-lg-8">
-                            <input class="form-control" type="text" value=""> </div>
+                            <input class="form-control" type="text" value="" name ="weight"> </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-3 control-label"></label>
-                        <div class="col-md-8">
-                            <div class="col-md-6">
-                                <a href='/perfilpersona' type="button" class="btn btn-warning col-md-3">Cancelar</a></div>
-                            <div class="col-md-6">
-                                <a href='/perfilcabra' type="reset" class="btn btn-warning col-md-3" >Guardar</a> </div>
+                        <div class="col-lg-12 centered">
+                        <button type="submit" class="btn btn-lg btn-warning center-block">Añadir</button>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
+        <div class= "push"></div>
     </div>
     <footer style="background-color:black">
         <div class="container">
@@ -101,6 +266,54 @@
     <script type='text/javascript'>
         $(document).ready(function () {});
     </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+
+	<script>
+    $(document).ready(function(){
+      var date_input=$('input[name="date"]'); //our date input has the name "date"
+      var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+      var options={
+        format: 'mm/dd/yyyy',
+        container: container,
+        todayHighlight: true,
+        autoclose: true,
+      };
+      date_input.datepicker(options);
+    })
+</script>
+
+
+<script type="text/javascript">
+      window.onload=function(){
+      $('.selectpicker').selectpicker();
+      $('.rm-mustard').click(function() {
+        $('.remove-example').find('[value=Mustard]').remove();
+        $('.remove-example').selectpicker('refresh');
+      });
+      $('.rm-ketchup').click(function() {
+        $('.remove-example').find('[value=Ketchup]').remove();
+        $('.remove-example').selectpicker('refresh');
+      });
+      $('.rm-relish').click(function() {
+        $('.remove-example').find('[value=Relish]').remove();
+        $('.remove-example').selectpicker('refresh');
+      });
+      $('.ex-disable').click(function() {
+          $('.disable-example').prop('disabled',true);
+          $('.disable-example').selectpicker('refresh');
+      });
+      $('.ex-enable').click(function() {
+          $('.disable-example').prop('disabled',false);
+          $('.disable-example').selectpicker('refresh');
+      });
+
+      // scrollYou
+      $('.scrollMe .dropdown-menu').scrollyou();
+
+      prettyPrint();
+      };
+    </script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.5.4/bootstrap-select.js"> </script>
 </body>
 
 </html>
