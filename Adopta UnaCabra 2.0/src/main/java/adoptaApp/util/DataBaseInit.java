@@ -35,11 +35,11 @@ public class DataBaseInit {
 		
 		Date d = new Date(1996,12,27);
 		
-		c1 = new Cabra("David", "Jamnapari", d, 3456, 3);
-		c2 = new Cabra("Topo", "Jamnapari", d, 3453, 67);
-		c3 = new Cabra("Marco", "Nazi", d, 53, 78);
-		c4 = new Cabra("TT", "Pedri", d, 42343, 87);
-		c5 = new Cabra("Luzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz", "PaCabra", d, 423, 78);		
+		c1 = new Cabra("David", "Jamnapari", d, 3456, 3,"masculino");
+		c2 = new Cabra("Topo", "Jamnapari", d, 3453, 67,"masculino");
+		c3 = new Cabra("Marco", "Nazi", d, 53, 78,"masculino");
+		c4 = new Cabra("TT", "Pedri", d, 42343, 87,"masculino");
+		c5 = new Cabra("Luzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz", "PaCabra", d, 423, 78,"masculino");		
 		
 
 			

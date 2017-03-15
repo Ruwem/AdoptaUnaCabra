@@ -26,6 +26,7 @@ public class Cabra {
 		private String raza;
 		private Date nacimiento;
 		private double price, weight;
+		private String sexo;
 		
 		@OneToOne
 		private Persona owner;
@@ -42,23 +43,25 @@ public class Cabra {
 		protected Cabra(){
 			}
 		
-		public Cabra(String nombre, String raza, Date nacimiento, double price, double weight){
+		public Cabra(String nombre, String raza, Date nacimiento, double price, double weight, String sexo){
 			this.nombre=nombre;
 			if(Raza.contains(raza)){
 				this.raza = raza;
 			}else{
-				this.setRaza(Raza.Desconocido);
+				this.setRaza(Raza.Desconocida);
 			}
 			
 			this.nacimiento=nacimiento;
 			this.price = price;
 			this.weight = weight;
+			this.sexo = sexo;
 			this.followers = new ArrayList<>();
 			this.news  = new ArrayList<>();
 			
 			this.owner = null;
 			this.home = null;
 		}
+		
 		
 		
 		
