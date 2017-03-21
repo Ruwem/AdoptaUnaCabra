@@ -22,3 +22,4 @@ Integrantes:
 - David Villanueva García / d.villanuevag@alumnos.urjc.es / @dvillanuevag
 
 Esquema
+<img src="/index.PNG"/>
