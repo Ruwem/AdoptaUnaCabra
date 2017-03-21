@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+     <base href="/">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>AdoptaUnaCabra - Perfil</title>
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/perfil-persona.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body background='img/fondo.jpg'>
+    <!-- NavBar -->
+	<nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i> </button>
+                <a class="page-scroll" href="#page-top"> <span class="navbar-brand page-scroll">Adopta Una Cabra</span></a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li> <a class="page-scroll" href="/listadocentros">Listado de Centros</a> </li>
+                    <li> <a class="page-scroll" href="/">Tienda</a> </li>
+                    <li> <a class="page-scroll" href="/noticias">Listado de Noticias</a> </li>
+                    {{#unlogged}}
+                    <li> <a class="page-scroll" href="/login">Iniciar Sesión</a> </li>
+                    {{/unlogged}}
+                    {{#logged}}
+                    <li> {{#user}}<span>Hola, </span><a class="page-scroll" href="/perfil/{{id}}">{{userName}}</a>{{/user}}
+                    {{/logged}}
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!--Container-->
+    <div class="container">
+        <div class="row">
+            <div class="col-md12 well">
+                <div class="col-md-12 well">
+                    <div class="col-md-3"> <img class="img-responsive center-block" src="http://placehold.it/200x200" alt=""> </div>
+                    <div class="col-md-9">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4>Nombre:<span><small>{{name}}</small></span></h4> </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4>Raza:<span><small>{{raza}}</small></span></h4> </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4>Fecha de nacimiento:<span><small> {{nacimiento}}</small></span></h4> </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4>Peso:<span><small>{{weight}}</small></span></h4> </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4>Dueño:<span><small> <a href="/perfilpersona/{id}">{{#dueño}}{{nombre}}{{/dueño}}</a></small></span></h4> </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                {{#cabraNews}}
+                    <div class="col-md-12">
+                    
+                        <div class="panel panel-default">
+                            <div class="well">
+                                <h1>Noticias de la cabra</h1> </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="col-md-6">
+                                        <a href="#"> <img class="img-responsive center-block" src="http://placehold.it/200x150" alt=""> </a>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h3>{{titulo}}</h3>
+                                        <p>{{descripcion}}</p> <a class="btn btn-warning" href="/noticias">Leer noticia <span class="glyphicon glyphicon-chevron-right"></span></a> </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    {{/cabraNews}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer -->
+    <footer style="background-color:black">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6"> <span class="copyright" style="color:white">Copyright &copy; Adopta Una Cabra</span> </div>
+                <div class="col-md-6">
+                    <ul class="list-inline social-buttons">
+                        <li><a href="#"><i class="fa fa-twitter"></i></a> </li>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a> </li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a> </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js" integrity="sha384-mE6eXfrb8jxl0rzJDBRanYqgBxtJ6Unn4/1F7q4xRRyIw7Vdg9jP4ycT7x1iVsgb" crossorigin="anonymous"></script>
+    <!-- Contact Form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <!-- Theme JavaScript -->
+    <script src="js/agency.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+
+</html>
