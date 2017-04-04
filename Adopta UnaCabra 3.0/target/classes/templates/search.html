@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+     <base href="/">
+    <title>Búsqueda</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="css/adopta-una-cabra.css"> </head>
+
+<body background='img/fondo.jpg'>
+	<nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i> </button>
+                <a class="page-scroll" href="#page-top"> <span class="navbar-brand page-scroll">Adopta Una Cabra</span></a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li> <a class="page-scroll" href="/listadocentros">Listado de Centros</a> </li>
+                    <li> <a class="page-scroll" href="/">Tienda</a> </li>
+                    <li> <a class="page-scroll" href="/noticias">Listado de Noticias</a> </li>
+                    {{#unlogged}}
+                    <li> <a class="page-scroll" href="/login">Iniciar Sesión</a> </li>
+                    {{/unlogged}}
+                    {{#logged}}
+                    <li> {{#user}}<a class="page-scroll" href="/perfil/{{id}}">Hola, {{nombre}}</a>{{/user}}
+                    <li> <a class="page-scroll" href="/logOut">Cerrar Sesión</a>
+                    {{/logged}}
+                </ul>
+            </div>
+        </div>
+    </nav>
+</body>
+	<div class="container well">
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h1 class="page-header">Resultados para {{search}}</h1> 
+            </div>
+        </div>
+        <!-- /.row -->
+        <!-- Project One -->
+
+             {{#UserFound}}
+                <div class="col-md-12 text-center"><h2>Usuarios</h2></div>
+                <hr>
+             {{#personas}}
+             <div class="row">
+            <div class="col-md-12">
+            
+            		<div class="col-md-3"></div>
+            		<div class="col-md-3">
+                     	<a href="/perfil/{{id}}"> <img class="img-responsive center-block" src="image/{{profileImage}}" alt=""> </a>
+                    </div>
+                    <div class="col-md-1">
+                    <br>
+                    <br>
+                    <br>
+                    	<h3>{{nombre}}</h3>
+                    </div>
+                    <div class="col-md-1">
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    	<a class="btn btn-warning" href='/perfil/{{id}}'>
+                    Ver perfil <span class="glyphicon glyphicon-chevron-right"></span></a> 
+                    </div>
+                <br>
+                </div>
+            </div>  
+            {{/personas}}
+            {{/UserFound}}
+            <hr> 
+            {{#NoGoatFound}}
+			<div class="col-md-12 text-center"><h2>Cabras</h2></div>
+            {{#cabras}}
+            <div class="row col-md-12">
+                   <div class="col-md-3"></div>
+                   <div class="col-md-3">                     	
+                   		<a href="/perfilcabra/{{id}}"> <img class="img-responsive center-block" src="image/{{profileImage}}" alt=""> </a>
+                   </div>
+                   <div class="col-md-1">
+                    <br>
+                    <br>
+                    <h3>{{nombre}}, <small>{{raza}}</small></h3>
+                   </div>
+                   <div class="col-md-1">
+                    <br>
+                    <br>
+                    <br>
+                   	<a class="btn btn-warning" href='/perfilcabra/{{id}}'>
+                   Ver perfil <span class="glyphicon glyphicon-chevron-right"></span></a>
+                   </div>
+				</div> 
+            {{/cabras}}
+			{{/NoGoatFound}}
+			<br>
+							</div>
+		                            
+	 <footer style="background-color:black">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6"> <span class="copyright" style="color:white">Copyright &copy; Adopta Una Cabra</span> </div>
+                <div class="col-md-6">
+                    <ul class="list-inline social-buttons">
+                        <li><a href="#"><i class="fa fa-twitter"></i></a> </li>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a> </li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a> </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script type='text/javascript' src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <!-- JavaScript jQuery code from Bootply.com editor  -->
+    <script type='text/javascript'>
+        $(document).ready(function () {});
+    </script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.5.4/bootstrap-select.js"> </script>
+</body>
+</html>
