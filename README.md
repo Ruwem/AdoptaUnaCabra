@@ -24,4 +24,6 @@ Integrantes:
 Esquema
 <img src="/UML3.0.png"/>
 
+<img src="/Diagrama de base de datos.png"/>
+
 <img src="/index.PNG"/>
