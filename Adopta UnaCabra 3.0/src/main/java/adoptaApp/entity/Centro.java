@@ -12,14 +12,27 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 public class Centro {
 	
+	public interface Basic{}
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
+	@JsonView(Basic.class)
 	private Integer id;
 	
-	private String nombre, lugar,email,profileImage;
+	@JsonView(Basic.class)
+	private String nombre;
+	
+	private String profileImage;
+	@JsonView(Basic.class)
+	private String lugar;
+	@JsonView(Basic.class)
+	private String email;
+	@JsonView(Basic.class)
 	private  int telephone;
 	
 	@ManyToMany

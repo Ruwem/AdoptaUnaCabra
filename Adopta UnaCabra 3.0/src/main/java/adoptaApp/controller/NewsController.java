@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -59,7 +60,7 @@ public class NewsController {
 		
 		Persona loggedUser = personaRep.findByNombre(request.getUserPrincipal().getName());
 		List<Noticia> noticiasfavoritas = new ArrayList<>();
-		List<Cabra> siguiendo = loggedUser.getFollowing();
+		Set<Cabra> siguiendo = loggedUser.getFollowing();
 		
 		for (Cabra c : siguiendo) {
 			for (Noticia n : c.getNews()) {
@@ -209,7 +210,7 @@ public class NewsController {
 	public String moreFavNews(Model model, @RequestParam int page,HttpServletRequest request) {
 		Persona loggedUser = personaRep.findByNombre(request.getUserPrincipal().getName());
 		List<Noticia> noticiasfavoritas = new ArrayList<>();
-		List<Cabra> siguiendo = loggedUser.getFollowing();
+		Set<Cabra> siguiendo = loggedUser.getFollowing();
 
         int count = 2;
 		for (Cabra c : siguiendo) {

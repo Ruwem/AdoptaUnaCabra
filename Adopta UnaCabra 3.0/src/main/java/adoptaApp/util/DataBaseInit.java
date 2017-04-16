@@ -174,6 +174,10 @@ public class DataBaseInit {
 		noticiaRep.save(n1);
 		noticiaRep.save(n2);
 		noticiaRep.save(n3);
+		n1.getCabras().add(c12);
+		noticiaRep.save(n1);
+		c12.getNews().add(n1);
+		cabraRep.save(c12);
 		
 		p1.getNews().add(n1);
 		p1.getCabras().add(c1);

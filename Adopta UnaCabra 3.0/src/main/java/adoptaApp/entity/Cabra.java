@@ -1,10 +1,13 @@
 package adoptaApp.entity;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,33 +16,58 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import adoptaApp.util.Gender;
 import adoptaApp.util.Raza;
 
 @Entity
 public class Cabra {
+	
+		public interface Basic{}
+		public interface NoOwner{}
+		
 
 		@Id
 		@GeneratedValue(strategy=GenerationType.AUTO)
+		
+		@JsonView({Basic.class, NoOwner.class})
 		private Integer id;
 		
+		@JsonView({Basic.class, NoOwner.class})
 		private String nombre;
+		
+		@JsonView({Basic.class, NoOwner.class})
 		private String raza;
+		
 		private Date nacimiento;
-		private double price, weight;
+		
+		@JsonView(Basic.class)
+		private double price;
+		
+		@JsonView(Basic.class)
+		private double weight;
+		
+		@JsonView({Basic.class, NoOwner.class})
 		private String sexo;
+		
+		@JsonView(Basic.class)
 		private String profileImage;
 		
 		@OneToOne
+		@JsonView(Basic.class)
 		private Persona owner;
 		
-		@ManyToMany
-		private List<Persona> followers;
+		@ManyToMany(fetch = FetchType.EAGER)
+		@JsonView(Basic.class)
+		private Set<Persona> followers;
 		
 		@OneToOne
+		@JsonView(Basic.class)
 		private Centro home;
 		
 		@ManyToMany
+		@JsonView(Basic.class)
 		private List<Noticia> news;
 		
 		protected Cabra(){
@@ -63,9 +91,8 @@ public class Cabra {
 			this.nacimiento=nacimiento;
 			this.price = price;
 			this.weight = weight;
-			this.followers = new ArrayList<>();
 			this.news  = new ArrayList<>();
-			
+			this.followers = new HashSet<>();
 			this.owner = null;
 			this.home = null;
 		}
@@ -142,11 +169,11 @@ public class Cabra {
 			this.owner = owner;
 		}
 
-		public List<Persona> getFollowers() {
+		public Set<Persona> getFollowers() {
 			return followers;
 		}
 
-		public void setFollowers(List<Persona> followers) {
+		public void setFollowers(Set<Persona> followers) {
 			this.followers = followers;
 		}
 

@@ -3,7 +3,9 @@ package adoptaApp.entity;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -15,27 +17,45 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 public class Noticia {
+	
+	public interface Basic{}
+	public interface NoOwner{}
+	public interface NoGoats{}
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
+	@JsonView({Basic.class,NoOwner.class})
 	private Integer id;
 	
-	private String titulo,descripcion,cuerpo, profileImage;
+	@JsonView({Basic.class,NoOwner.class,NoGoats.class})
+	private String titulo;
+	@JsonView({Basic.class,NoOwner.class,NoGoats.class})
+	private String descripcion;
+	@JsonView({Basic.class,NoOwner.class,NoGoats.class})
+	private String cuerpo;
+	@JsonView(Basic.class)
+	private String profileImage;
+	
 	private LocalDateTime date;
 	
 	@ManyToOne
+	@JsonView(Basic.class)
 	private Persona author;
 	
 	@ManyToMany(mappedBy = "news")
-	private List<Cabra> cabras;
+	private Set<Cabra> cabras;
 	
 	@ManyToMany(mappedBy = "news")
 	private List <Centro> centros;
 	
 	@OneToMany
+	@JsonView(Basic.class)
 	private List<Comentario> comentarios;
+	
 	protected Noticia (){
 		
 	}
@@ -50,7 +70,7 @@ public class Noticia {
 		this.profileImage = "noticia-pordefecto.jpg";
 		
 		this.comentarios = new ArrayList<>();
-		this.cabras = new ArrayList<>();
+		this.cabras = new HashSet<>();
 		this.centros = new ArrayList<>();
 	}
 
@@ -119,11 +139,11 @@ public class Noticia {
 		this.author = author;
 	}
 
-	public List<Cabra> getCabras() {
+	public Set<Cabra> getCabras() {
 		return cabras;
 	}
 
-	public void setCabras(List<Cabra> cabras) {
+	public void setCabras(Set<Cabra> cabras) {
 		this.cabras = cabras;
 	}
 	public String getProfileImage() {

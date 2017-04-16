@@ -9,21 +9,34 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import adoptaApp.entity.Centro.Basic;
+
 
 @Entity
 public class Comentario {
 
+	public interface Basic{}
+	public interface NoOwner{}
+	public interface NoNews{}
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
+	@JsonView({Basic.class,NoOwner.class,NoNews.class})
 	private Integer id;
 	
+	@JsonView({Basic.class,NoOwner.class,NoNews.class})
 	private String comentario;
+	
 	private LocalDateTime fecha;
 	
 	@ManyToOne
+	@JsonView({Basic.class,NoNews.class})
 	private Persona author;
 	
 	@ManyToOne
+	@JsonView({Basic.class,NoOwner.class})
 	private Noticia noticia;
 
 	protected Comentario(){
