@@ -1,0 +1,113 @@
+<body background='./assets/img/fondo.jpg'>
+    <!-- Navigation -->
+	<nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i> </button>
+                <a class="page-scroll" href="#page-top"> <span class="navbar-brand page-scroll">Adopta Una Cabra</span></a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li> <a class="page-scroll" href="/listadocentros">Listado de Centros</a> </li>
+                    <li> <a class="page-scroll" href="/">Tienda</a> </li>
+                    <li> <a class="page-scroll" href="/noticias">Listado de Noticias</a> </li>
+                    {{#unlogged}}
+                    <li> <a class="page-scroll" href="/login">Iniciar Sesión</a> </li>
+                    {{/unlogged}}
+                    {{#logged}}
+                    <li> {{#user}}<a class="page-scroll" href="/perfil/{{id}}">Hola, {{nombre}}</a>{{/user}}
+                    <li> <a class="page-scroll" href="/logOut">Cerrar Sesión</a>
+                    {{/logged}}
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Page Content -->
+    <div class="container">
+        <!-- Projects Row -->
+        <div class="row">
+         <form class="form-horizontal row" role="form" action="/search" method="get">
+				<div id="search-input row">
+	
+					<div class="input-group">
+						<input class="form-control col-md-10" name="mySearch" type="text" placeholder = "Buscar"> 
+						</div>
+						<div><span><button class="glyphicon glyphicon-search col-md-2" type="submit"> Buscar</button></span>
+					</div>
+				</div>
+				
+		</form>
+		<br>
+            <div class="col-md-8">
+            	{{#unlogged}}
+                <div class="row text-center">
+                    <div class="well">
+                        <h1>¿No estás registrado?<small><a href="/login"><u> Pincha aquí</u></a></small></h1> </div>
+                </div>
+                {{/unlogged}}
+                <!-- Primera fila de fotos de cabras-->
+                <div class="well">
+                    <div class="row">
+                    	{{#cabras}}
+                        <div class="col-md-4">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <a href="/goatPurchase/{{id}}"> <img class="img-responsive margin-bot img-shop" src="/image/{{profileImage}}" alt=""> </a>
+                                </div>
+                                <div class="row">
+                                
+                                    <div class="col-md-6"> 
+                                    <br>
+                                    <a class="btn btn-warning bajo-foto" href="/goatPurchase/{{id}}/payment">Comprar<span class="glyphicon glyphicon-chevron-right"></span></a> 
+                                    </div>
+                                    <div class="col-md-6" style="height: 100px;">
+                                     <p>Nombre: <small>{{nombre}}</small></p>
+                                     <p>Raza: <small>{{raza}}</small></p>
+                                     <p>Precio: <small>{{price}}€</small></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {{/cabras}}
+
+                    </div>
+                </div>
+                <!-- About us je-->
+                <br> </div>
+            <div class="col-md-4 text-center">
+                <div class="panel panel-default">
+                    <div class="well">
+                        <h1>Nuestros Centros</h1>
+                    </div>
+                    <div class="lala">
+                    	{{#centros}}
+                        <div class="row">
+                            <div class="col-md-12">
+                                <a href="/centros/{{id}}"> <img class="img-responsive center-block" src="/image/{{profileImage}}" alt=""> </a>
+                            </div>
+                        </div>
+						{{/centros}}
+                    </div>
+                </div>
+            </div>
+        </div>
+       </div>
+        <!-- /.row -->
+        <!-- Footer -->
+        <footer style="background-color:black">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6"> <span class="copyright" style="color:white">Copyright &copy; Adopta Una Cabra</span> </div>
+                    <div class="col-md-6">
+                        <ul class="list-inline social-buttons">
+                            <li><a href="#"><i class="fa fa-twitter"></i></a> </li>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a> </li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a> </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
