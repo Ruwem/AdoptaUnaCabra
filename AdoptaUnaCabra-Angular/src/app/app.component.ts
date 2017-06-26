@@ -1,16 +1,30 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
+import { AuthService } from 'app/services/auth.service'
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  moduleId: module.id,
+  selector: 'auc-root',
+  template: `<router-outlet></router-outlet>`,
 })
-export class AppComponent implements OnDestroy {
-  
-  constructor() {
-  }
+export class AppComponent {
+  @HostListener('window:onclose') clearAuth() {
+        console.log('Cleaning credential authorization.....');
+        this.authService.clear();
+        localStorage.clear();
+    }
 
-  ngOnDestroy() {
-    console.log('Killing processes');
-  }
+    constructor(
+        private authService: AuthService
+    ) { }
+
+
+    ngOnInit() {
+        this.authService.reloadAuth();
+    }
+
+    ngOnDestroy() {
+        console.log('Cleaning credential authorization.....');
+        this.authService.clear();
+        localStorage.clear();
+    }
 }

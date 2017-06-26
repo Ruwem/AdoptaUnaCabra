@@ -1,17 +1,16 @@
-import { Centro } from './Centro.model';
 import { News } from './News.model';
 import { Goat } from './Goat.model';
-import { Comment } from './Comment.model';
+import { Comentario } from "app/model/Comentario.model";
 
 export interface User{
     id?: number;
     nombre: string;
     apellidos: string;
-    email: string;
-    password?: string;
+    correo: string;
+    passwordHash: string;
     profileImage: string;
-    cabras: Goat[];
-    following: Goat[];
-    news: News[];
-    comments: Comment[];
+    goats?: Goat[];
+    following?: Goat[];
+    news?: News[];
+    comments?: Comentario[];
 }

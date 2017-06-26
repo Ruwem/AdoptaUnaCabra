@@ -1,0 +1,91 @@
+<auc-header></auc-header>
+<body background='../assets/img/fondo.jpg'>
+<div class="container">
+        <div class="row">
+
+
+
+            <!--
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-6">"
+        <form class="form-horizontal col-md-12" role="form" action="/search" method="get">
+            <div class="input-group col-md-12">
+            <input #search class="form-control" name="search" type="text" placeholder = "Buscar">
+             </div> 
+             </form>  
+             </div> 
+             <div class="col-md-6">
+             <input type="submit" class="btn btn-warning col-md-6 center-block" value="Buscar" (click)="gotoSearch(search.value)">
+             </div>
+   
+            
+<br>
+<br>
+       
+                </div>
+                </div>-->
+
+            <!-- Añadir SearchComponent cuando esté hecho-->
+  <br>
+            <div class="col-md-8">
+             
+             <!--{{#unlogged}}-->
+                <div *ngIf="!authService.isLogged()"class="row text-center">
+                    <div class="well">
+                        <h1>¿No estás registrado?<small><a routerLink ="/login"><u> Pincha aquí</u></a></small></h1> </div>
+                </div>
+                <!--{{/unlogged}}-->
+
+
+                <!-- Primera fila de fotos de cabras-->
+                <div class="well">
+                    <div class="row">
+                     <!--{{#cabras}}-->
+                        <div *ngFor = "let goat of goats" class="col-md-4">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <a [routerLink] ="['/buyGoat', goat.id]"> <img style="width:240px;height:180px" class="img-responsive margin-bot img-shop" src="../assets/img/imgProfile/GOAT_IMG/{{goat.profileImage}}" alt=""> </a>
+
+                                <div class="row">
+                                
+                                    <div class="col-md-6"> 
+                                    <br>
+                                    <a [routerLink] ="['user','goat', goat.id,'payment']"class="btn btn-warning bajo-foto" >Comprar<span class="glyphicon glyphicon-chevron-right"></span></a> 
+                                    </div>
+                                    <div class="col-md-6" style="height: 150px;">
+                                     <p>Nombre: <small>{{goat.nombre}}</small></p>
+                                     <p>Raza: <small>{{goat.raza}}</small></p>
+                                     <p>Precio: <small>{{goat.price}}€</small></p>
+                                    </div>
+                                </div>
+                            </div>           
+                        </div>
+                        </div>
+                        <!--{{/cabras}}-->
+
+                    </div>
+                </div>
+                <!-- About us je-->
+                <br> </div>
+            <div class="col-md-4 text-center">
+                <div class="panel panel-default">
+                    <div class="well">
+                        <h1>Nuestros Centros</h1>
+                    </div>
+                    <div class="lala">
+                     <!--{{#centros}}-->
+                        <div *ngFor = "let center of centers" class="row center-block">
+                            <div class="col-md-12">
+                                <a [routerLink] ="['/center', center.id]"> <img style="width:300px;height:200px" class="img-responsive center-block" src="../assets/img/imgProfile/CENTRO_IMG/{{center.profileImage}}" > </a>
+                                <br>
+                            </div>
+                        </div>
+      <!--{{/centros}}-->
+                    </div>
+                </div>
+            </div>
+        </div>
+       </div>
+</body>
+<auc-footer></auc-footer>

@@ -1,0 +1,32 @@
+    <body background='../../../../../../assets/img/fondo.jpg'>
+	<auc-header></auc-header>
+        <div class="container">
+            <div class="well">
+                <h1>¿Desea añadir una foto a la noticia?</h1>
+            <hr>        
+            <br>        
+                <h4 style="text-align:center;margin-left:35px;margin-right:35px">Una imagen vale más que mil palabras... así que 
+                sube una foto que ilustre la noticia para que podamos conocer mejor a nuestras cabras.</h4>
+                <hr>
+                <br>
+				<div class="row col-md-12">
+				<div class="col-md-2"></div>
+				<div class="row col-md-3 text-right">
+                 	<form action="/noticias/{{id}}/image/upload" method="post" enctype="multipart/form-data" id="form-image">
+						<div><input type="file" name="file" id="input-image" /></div>
+						<br>
+						<button type="submit" class="btn btn-warning uploadImg">Cambiar Imagen<span class="glyphicon glyphicon-chevron-right"></span></button>
+					</form>
+								</div>
+				<div class="row col-md-6 text-right">
+							<a><button  class="btn btn-warning uploadImg">Cancelar<span class="glyphicon glyphicon-chevron-right"></span></button></a>
+					</div> 
+								</div>  
+								<hr>
+								<br>
+								<br>
+								<br>
+                </div>
+                 </div>
+      <auc-footer></auc-footer>
+    </body>

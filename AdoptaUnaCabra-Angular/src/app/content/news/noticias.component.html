@@ -1,0 +1,86 @@
+
+
+<auc-header></auc-header>
+
+<body background='../assets/img/fondo.jpg'>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row well" style=margin-top:100px>
+
+            <!-- Blog Post Content Column -->
+            <div class="col-lg-12 ">
+
+                <!-- Blog Post -->
+                <div *ngIf="news" class='well'>
+                <!-- Title -->
+                <h1>{{news.titulo}}</h1>
+
+                <!-- Author -->
+                    <p class="lead"> by <a [routerLink]= "['/user', news.author.id]">{{news.author.nombre}}</a> </p>
+
+                <hr>
+
+                <!-- Date/Time -->
+                <p><span class="glyphicon glyphicon-time"></span> A fecha de: 26/06/2017</p>
+                    </div>
+
+                <hr>
+
+                <!-- Preview Image -->
+                <img *ngIf="news" class="img-responsive center-block" src="../../../assets/img/imgProfile/NEWS_IMG/{{news.profileImage}}" alt="">
+
+                <hr>
+                <div *ngIf = "news" class='well'>
+                	<!-- Post Content -->
+                	<h2 class="lead">{{news.descripcion}}</h2>
+                	<p class="lead"> {{news.cuerpo}}</p>
+                </div>
+                <hr>
+
+                <!-- Blog Comments -->
+                <div class='well'>
+                <!-- Comments Form -->
+                <div *ngIf="authService.isLogged()"class="well">
+                    <h4>Comenta que te ha parecido la noticia</h4>
+                    <form role="form" action="/noticias/{{id}}/nuevoComentario" method="post" >
+                        <div class="form-group">
+                            <textarea class="form-control" required name= "comentario" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-warning">Enviar</button>
+                    </form>
+                </div>
+
+                <hr>
+
+                <!-- Posted Comments -->
+
+                <!-- Comment -->
+                <div *ngFor = "let comment of comments"class="media well">
+                <div class="row">
+                	<div class="col-md-3">
+                    <a class="pull-left" routerLink= "['/user','comment.author.id']">
+                        <img class="media-object img-responsive img-circle" src="../../../assets/img/imgProfile/USER_IMG/{{comment.author.profileImage}}"  alt="" style="max-height: 150px; max-width:150px">
+                    </a>
+                    </div>
+                    <div class="col-md-8">
+                        <h4 class="media-heading">
+     														{{comment.author.nombre}}
+                        </h4>
+                        <p>{{comment.comentario}}</p>
+                    </div>
+                    </div>      
+                </div>
+            </div>
+            </div>
+    </div>
+
+        </div>
+        <!-- /.row -->
+
+        
+
+</body>
+<auc-footer></auc-footer>
+

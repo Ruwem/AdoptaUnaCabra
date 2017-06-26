@@ -1,0 +1,64 @@
+<auc-header></auc-header>
+<body background='../assets/img/fondo.jpg'>
+            	<!--{{#centro}}-->
+    <img class='img-responsive img-center' src="../../../../assets/img/imgProfile/CENTRO_IMG/{{center.profileImage}}"/>
+
+    <div class="container">
+
+        <div class="row well">
+
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                   <!--{{nombre}}-->
+                   {{center?.nombre}}
+                </h1>
+                
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-fw fa-check"></i>Correo</h4>
+                    </div>
+                    <div class="panel-body">
+                        <p>Si desea contactar con nosotros a través de correo, lo puede hacer mediante "{{center?.email}}<!--{{email}}-->"</p>       
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-fw fa-gift"></i> Ubicación</h4>
+                    </div>
+                    <div class="panel-body">
+                        <p>Nos puede encontrar en {{center?.lugar}}<!--{{lugar}}--></p>
+                   
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-fw fa-compass"></i> Teléfono</h4>
+                    </div>
+                    <div class="panel-body">
+                        <p>Puede llamarnos cuando quiera: {{center?.telephone}}<!--{{telephone}}--></p>        
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.row -->
+
+        
+
+
+        <!-- /.row -->
+
+        <hr>
+
+    </div>
+                <!--{{/centro}}-->
+        <!-- footer -->
+   
+</body>
+ <auc-footer>    </auc-footer>

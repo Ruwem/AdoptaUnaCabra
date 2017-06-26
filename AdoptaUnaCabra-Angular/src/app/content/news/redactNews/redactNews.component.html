@@ -1,0 +1,43 @@
+<auc-header></auc-header>
+
+<body background='../assets/img/fondo.jpg'>
+
+
+        <div class="container">
+            <div class="well">
+                <h1>Redactar noticia</h1> </div>
+            <hr>
+            <div class="row">
+                <!-- edit form column -->
+                <div class="col-md-12 personal-info well">
+
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Titular</label>
+                            <div class="col-lg-8">
+                                <input class="form-control" #title name="title" required type="text" value=""> </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Descripción de la noticia</label>
+                            <div class="col-lg-8">
+                                <textarea class="form-control" required #description name="description" type="text" value=""></textarea> </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Cuerpo</label>
+                            <div class="col-lg-8">
+                                <textarea class="form-control" required #cuerpo name="cuerpo" type="text" value=""></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label"></label>                                
+                                <div class="col-lg-12">
+                                    	<button type="submit" class="btn btn-warning center-block" 
+                                        (click)="addNew(title.value,description.value,cuerpo.value)">Guardar</button>
+                                </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+<auc-footer></auc-footer>
+    </body>

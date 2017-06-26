@@ -1,53 +1,70 @@
 import { Injectable } from '@angular/core';
-import { Headers, Http } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/Rx';
-import { NEWS_URL } from "../util";
+import { Http, Headers, RequestOptions } from '@angular/http';
+import 'rxjs/add/operator/toPromise';
+import { NEWS_URL } from '../paths';
+import { News } from '../model/news.model';
+import { AuthService } from './auth.service';
+import { Goat } from "app/model/Goat.model";
+import { Comentario } from "app/model/Comentario.model";
 
-import { News } from '../model/News.model';
 
 @Injectable()
-export class NewsService{
-    new: News;
-    news: News[];
-    authCreds: string;
+export class NewsService {
 
-    constructor(private http: Http){
+    constructor(
+        private http: Http,
+        private authService: AuthService) { }
+
+    getNews(): Promise<News[]> {
+        return this.http.get(NEWS_URL + "/all")
+            .toPromise()
+            .then(response => response.json())
+            .catch(error => console.error(error));
     }
 
-    setAuthHeaders(authCreds: string) {
-            this.authCreds = authCreds;
+     getNew(id: number): Promise<News> {
+        return this.http.get(NEWS_URL + id)
+            .toPromise()
+            .then(response => response.json())
+            .catch(error => console.error(error));
+    }
+    getComentarios(id:number): Promise<Comentario[]>{
+        return this.http.get(NEWS_URL + id + "/comments")
+        .toPromise()
+        .then(response => response.json())
+        .catch(error => console.error(error))
     }
 
-    getAllNews() {
-        let url = NEWS_URL + '/all';
-        return this.http.get(url)
-            .map(response => response.json())
-            .catch(error => Observable.throw('Server Error'));
+    addNews(title, description, cuerpo) {
+        let nuevaNoticia : News;
+        nuevaNoticia = { titulo: title, descripcion: description, cuerpo: cuerpo, profileImage: null, fecha: null, author: this.authService.getUser(), cabras: null,centers:null, comentarios: null }
+        const headers = new Headers({
+            'Authorization': 'Basic ' + this.authService.getCredentials(),
+            'Content-Type': 'application/json'
+        });
+        return this.http.post(NEWS_URL, nuevaNoticia, headers)
     }
 
-    getNew(id: number) {
-        return this.http.get(NEWS_URL + '/' + id.toString())
-        .map(response => {
-            this.new = response.json();
-            return response.json();
-        })
-        .catch(error => Observable.throw('Server error'));
+    deleteNews(id: number): Promise<any> {
+        const headers = new Headers({
+            'Authorization': 'Basic ' + this.authService.getCredentials()
+        });
+        const options = new RequestOptions({ headers });
+        return this.http.delete(NEWS_URL + id, options)
+            .toPromise()
+            .then(undefined)
+            .catch(error => console.error(error));
     }
 
-    getFavNews() {}
-
-    addNew(noticia: News) {
-        this.authCreds = localStorage.getItem("creds");
-        let body = JSON.stringify(noticia);
-        let headers: Headers = new Headers();
-        headers.append('Content-Type', 'application/json');
-        headers.append('X-Requested-With', 'XMLHttpRequest');
-        headers.append('Authorization', 'Basic' + this.authCreds);
-        return this.http.post(NEWS_URL, body, {headers: headers})
-            .map(response => response.json())
-            .catch(error => Observable.throw('Server error'))
+	getFavNews(): Promise<News[]> {
+        const headers = new Headers({
+            'Authorization': 'Basic ' + this.authService.getCredentials()
+        });
+        const options = new RequestOptions({ headers });
+        return this.http.get(NEWS_URL + "noticiasfav", options )
+            .toPromise()
+            .then(response => response.json())
+            .catch(error => console.error(error));
     }
-
     
 }

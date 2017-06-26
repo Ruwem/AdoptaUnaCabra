@@ -1,40 +1,26 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpModule, JsonpModule } from '@angular/http';
-//import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-//import { DropdownModule } from "@ngx-dropdown";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
+
 
 import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
 
-import { GoatService } from './services/goat.service';
-import { CentroService } from './services/centro.service';
-import { NewsService } from './services/news.service';
-import { UserService } from './services/user.service';
+import { ContentModule } from "app/content/content.module";
+import { AppRoutingModule } from "app/app-routing.module";
+
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
-    BrowserAnimationsModule,
     BrowserModule,
-    //DropdownModule,
-    FormsModule,
-    HttpModule,
-    JsonpModule,
-    //NgbModule.forRoot(),
-    ReactiveFormsModule,
-    AppRoutingModule
+    ContentModule,
+    AppRoutingModule,
+    HttpModule
   ],
-  providers: [
-    GoatService,
-    CentroService,
-    NewsService,
-    UserService
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,105 @@
+
+
+<auc-header></auc-header>
+<body background='../../../../../assets/img/fondo.jpg'>
+
+    <!--Container-->
+    <div class="container">
+        <div class="row">
+            <div class="col-md12 well">
+                <div class="col-md-12 well">
+                    <div class="col-md-3"> <img *ngIf="user" class="img-responsive center-block" src="../../../../assets/img/imgProfile/USER_IMG/{{user.profileImage}}" alt="" style="max-height: 200px; max-width:200px"> </div>
+                    <div *ngIf="user" class="col-md-9">
+                        <div class="row">
+                            <div class="col-md-10">
+                                <h4>Nombre:<span><small>{{user.nombre}}</small></span></h4> </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-10">
+                                <h4>Apellidos:<span><small>{{user.apellidos}}</small></span></h4> 
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-10">
+                                <h4>Email de contacto:<span><small>{{user.correo}}</small></span></h4> 
+                            </div>
+                        </div>
+                        <!--
+                        {{#eresUsuario}}
+                        <div *ngIfclass="row">
+                        	
+                        	<div class="col-md-2">
+                        		<form action="/perfil/{{id}}/image/upload" method="post"enctype="multipart/form-data" id="form-image">
+									<div><input type="file" name="file" id="input-image" /></div>
+									<br>
+									<button type="submit" class="btn btn-warning uploadImg">Cambiar Imagen<span class="glyphicon glyphicon-chevron-right"></span></button>
+								</form>                 	
+                        	</div>-->
+                            <div *ngIf= "authService.isLogged()" class="col-md-offset-8">
+                               <a class="btn btn-warning" [routerLink]="['/user', user.id, 'addcabra']">Añadir una cabra 
+                               <span class="glyphicon glyphicon-chevron-right"></span></a>
+                            </div><!--
+                        </div>
+                        {{/eresUsuario}}
+                        -->
+                    </div>
+                </div>
+                <!-- Centered Tabs -->
+
+        
+                    <div class="row">
+                        <div class="col-md-12">
+       <div class="col-md-4">
+
+            <h1 class = "text-center">Noticias Subidas</h1>
+            <div *ngFor="let new of news" class="col-md-12">
+                <div class="col-md-6">
+                    <a > <img class="img-responsive img-list " src="../../../../assets/img/imgProfile/NEWS_IMG/{{new.profileImage}}" alt=""> </a>
+                </div>
+                <div class="col-md-6">
+                    <h3>{{new.titulo}}</h3>
+                    <a [routerLink] = "['/allnews',new.id]" class="btn btn-warning" >Leer noticia <span class="glyphicon glyphicon-chevron-right"></span></a> </div>
+            </div>
+        </div>
+        <br>
+                        
+                 
+                   
+                    <div class="col-md-4">
+                                <h1 class = "text-center">En posesion</h1>
+                                <div *ngFor = "let goat of cabras" class="col-md-12">
+                                    <div class="col-md-6 ">
+                                        <a > <img class="img-responsive img-list" src="../../../../assets/img/imgProfile/GOAT_IMG/{{goat.profileImage}}" alt=""> </a>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h3>{{goat.nombre}}</h3>
+                                        <p>{{goat.raza}}</p> <a [routerLink] = "['/goat',goat.id]" class="btn btn-warning" >Mostrar cabra <span class="glyphicon glyphicon-chevron-right"></span></a> </div>
+                                </div>
+                            </div>
+                            <br>
+                        
+                 
+                     <div class="col-md-4">
+                                <h1 class = "text-center">Favoritas</h1>
+                                <div *ngFor = "let fav of favs" class="col-md-12">
+                                    <div class="col-md-6">
+                                        <a > <img class="img-responsive img-list " src="../../../../assets/img/imgProfile/GOAT_IMG/{{fav.profileImage}}" alt=""> </a>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h3>{{fav.nombre}}</h3>
+                                        <p>{{fav.raza}}</p> <a [routerLink] = "['/goat',fav.id]" class="btn btn-warning" >Mostrar cabra <span class="glyphicon glyphicon-chevron-right"></span></a> </div>
+                                </div>
+                            </div>
+                            <br>
+                        
+                     
+                    </div>
+            </div>             
+                </div>
+            </div>
+        </div>
+   >
+
+</body>
+<auc-footer></auc-footer>
+

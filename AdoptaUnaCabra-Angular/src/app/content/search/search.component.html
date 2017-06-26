@@ -1,0 +1,71 @@
+
+<auc-header></auc-header>
+<body background='../assets/img/fondo.jpg'>
+	<div class="container well">
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h1 class="page-header">Resultados para búsqueda {{search.value}}</h1> 
+            </div>
+        </div>
+             <ng-template [ngIf]="visibleU">
+                <div class="col-md-12 text-center"><h2>Usuarios</h2></div>
+                <hr>
+             </ng-template>
+             <div class="row">
+            <div class="col-md-12">
+            
+            		<div class="col-md-3"></div>
+            		<div class="col-md-3">
+                     	<a> <img class="img-responsive center-block" src="../../../../assets/img/imgProfile/USER_IMG/{{user.profileImage}}" alt=""> </a>
+                    </div>
+                    <div class="col-md-1">
+                    <br>
+                    <br>
+                    <br>
+                    	<h3>{{user.nombre}}</h3>
+                    </div>
+                     <ng-template [ngIf]="visibleU">
+                    <div class="col-md-1">
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    
+                    	<a [routerLink]="['/user', user.id]" class="btn btn-warning">
+                    Ver perfil <span class="glyphicon glyphicon-chevron-right"></span></a> 
+                    </div>
+                    </ng-template>
+                    
+                <br>
+                </div>
+                
+            </div>  
+            <hr> 
+             <ng-template [ngIf]="visibleG">
+			<div class="col-md-12 text-center"><h2>Cabras</h2></div>
+             </ng-template>
+            <div class="row col-md-12">
+                   <div class="col-md-3"></div>
+                   <div class="col-md-3">                     	
+                   		<a > <img class="img-responsive center-block" src="../../../../assets/img/imgProfile/GOAT_IMG/{{goat.profileImage}}" alt=""> </a>
+                   </div>
+                   <div class="col-md-1">
+                    <br>
+                    <br>
+                    <h3>{{goat.nombre}}, <small>{{goat.raza}}</small></h3>
+                   </div>
+                    <ng-template [ngIf]="visibleG">
+                   <div class="col-md-1">
+                    <br>
+                    <br>
+                    <br>
+                   	<a [routerLink]="['/goat', goat.id]" class="btn btn-warning">
+                   Ver perfil <span class="glyphicon glyphicon-chevron-right"></span></a>
+                   </div>
+                    </ng-template>
+				</div>
+			<br>
+		</div>
+<auc-footer></auc-footer>
+</body>

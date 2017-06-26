@@ -1,0 +1,35 @@
+<auc-header></auc-header>
+<body background='../../../../assets/img/fondo.jpg'>
+    <!-- Page Content -->
+    <div class="container">
+        <!-- Portfolio Item Heading -->
+        <div class="row">
+            <div class="col-lg-12 well">
+                <h1 class="page-header">{{goat.nombre}}
+                    <small>{{goat.raza}}</small>
+                </h1> </div>
+        </div>
+        <!-- /.row -->
+        <!-- Portfolio Item Row -->
+        <div class="row">
+            <div class="col-md-8"> <img class="img-responsive" src="../../assets/img/imgProfile/GOAT_IMG/{{goat.profileImage}}" alt="" style="height:500px; width:700px;"> </div>
+            <div class="col-md-4 well-cabramierdasteodio">
+
+                 <h3>Datos de la cabra</h3>
+                <ul>
+                	<li><strong>Nombre:</strong>{{goat.nombre}}</li>
+                    <li><strong>Nacimiento:</strong>{{goat.nacimiento}} </li>
+                    <li><strong>Sexo:</strong>{{goat.sexo}}</li>
+                    <li><strong>Peso:</strong>{{goat.weight}} kg</li>
+                    <li><strong>Raza:</strong>{{goat.raza}}</li>
+                    <li><strong>Precio:</strong>{{goat.price}}€</li>
+                </ul>
+                	<a [routerLink] ="['/user','goat', goat.id,'payment']" class="btn btn-warning" >Comprar</a> </div>
+            </div>
+        </div>
+        <!-- /.row -->
+        
+        <hr>
+<auc-footer></auc-footer>
+
+</body>

@@ -1,0 +1,24 @@
+<nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i> </button>
+                <a class="page-scroll" [routerLink]="['']"> <span class="navbar-brand page-scroll">Adopta Una Cabra</span></a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li> <a class="page-scroll" [routerLink]="['/centerlist']">Listado de Centros</a> </li>
+                    <li> <a class="page-scroll" [routerLink]="['']" >Tienda</a> </li>
+                    <li> <a class="page-scroll" [routerLink]="['/favnews']">Listado de Noticias</a> </li>
+                    <!--{{#unlogged}}-->
+                    <li *ngIf= "!authService.isLogged()"> <a class="page-scroll" [routerLink]="['/login']" >Iniciar Sesión</a> </li>
+                    <!--{{/unlogged}}
+                    {{#logged}}-->
+                    <li *ngIf= "authService.isLogged()"><a class="page-scroll" [routerLink] = "['/user',user.id]">Hola, {{user.nombre}}</a>
+                    <li *ngIf= "authService.isLogged()"> <a class="page-scroll" (click)="logOut()">Cerrar Sesión</a>
+                </ul>
+            </div>
+        </div>
+    </nav>

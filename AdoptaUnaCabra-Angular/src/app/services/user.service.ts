@@ -1,85 +1,150 @@
 import { Injectable } from '@angular/core';
-import { Headers, Http } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/Rx';
-import { USER_URL } from "../util";
+import { Headers, Http, RequestOptions } from '@angular/http';
+import 'rxjs/add/operator/toPromise';
+import { Subject } from 'rxjs/Subject';
 
-import { User } from '../model/User.model';
+
+import { AuthService } from './auth.service';
+
+import { User } from '../model/user.model';
+import { Goat } from '../model/Goat.model';
+import { USER_URL, GOAT_URL, BASE_URL } from "app/paths";
+import { News } from "app/model/News.model";
 
 @Injectable()
-export class UserService{
-    user: User;
-    users: User[];
-    authCreds: string;
+export class UserService {
 
-    constructor(private http: Http){
+    constructor(private http: Http, private authService: AuthService) { }
 
+    // Observable string sources
+    private changeAnnouncedSource = new Subject<User>();
+    // Observable string streams
+    changeAnnounced$ = this.changeAnnouncedSource.asObservable();
+
+    // Service message commands
+    announceChange(user: User) {
+        this.changeAnnouncedSource.next(user);
     }
 
-    setAuthHeaders(authCreds: string) {
-        this.authCreds = authCreds;
+    getUsers(): Promise<User[]> {
+        return this.http.get(USER_URL)
+            .toPromise()
+            .then(response => response.json())
+            .catch(error => console.error(error));
     }
 
-   
-    getUser(id: number) {
-        this.authCreds = localStorage.getItem("creds");
-        let headers: Headers = new Headers();
-        headers.append('Authorization', 'Basic ' + this.authCreds);
-        return this.http.get(USER_URL + '/' + id.toString(), { headers: headers })
-        .map(response => {
-            this.user = response.json();
-            return response.json();
-        })
-        .catch(error => Observable.throw('Server error'));
+    getUser(id: number): Promise<User> {
+        return this.http.get(USER_URL + id)
+            .toPromise()
+            .then(response => response.json())
+            .catch(error => console.error(error));
     }
 
-    getAllUsers() {
-        let url = USER_URL + '/all';
-        return this.http.get(url)
-            .map(response => response.json())
-            .catch(error => Observable.throw('Server Error'));
+    getCabrasFavoritas(id:number): Promise<Goat[]>{
+        return this.http.get(USER_URL + id + "/favs")
+            .toPromise()
+            .then(response => response.json())
+            .catch(error => console.error(error))
     }
 
-    addUser(user: User) {
-        this.authCreds = localStorage.getItem("creds");
-        let body = JSON.stringify(user);
-        let headers: Headers = new Headers();
-        headers.append('Content-Type', 'application/json');
-        headers.append('X-Requested-With', 'XMLHttpRequest');
-        headers.append('Authorization', 'Basic' + this.authCreds);
-        return this.http.post(USER_URL, body, {headers: headers})
-            .map(response => response.json())
-            .catch(error => Observable.throw('Server error'))
+    getCabras(id:number): Promise<Goat[]>{
+        return this.http.get(USER_URL + id + "/goats")
+            .toPromise()
+            .then(response => response.json())
+            .catch(error => console.error(error))
     }
 
-    deleteUser(id: number) {
-        this.authCreds = localStorage.getItem("creds");
-        let headers: Headers = new Headers();
-        headers.append('Content-Type', 'application/json');
-        headers.append('X-Requested-With', 'XMLHttpRequest');
-        headers.append('Authorization', 'Basic' + this.authCreds);
-        return this.http.delete(USER_URL + '/' + id, {headers: headers})
-            .map(response => response.json())
-            .catch(error => Observable.throw('Server error'))
+    getNews(id:number): Promise<News[]>{
+        return this.http.get(USER_URL + id + "/news")
+            .toPromise()
+            .then(response => response.json())
+            .catch(error => console.error(error))
     }
 
-    updateUser(user: User, current: boolean) {
-        this.authCreds = localStorage.getItem("creds");
-        let body = JSON.stringify(user);
-        let headers: Headers = new Headers();
-        headers.append('Content-Type', 'application/json');
-        headers.append('X-Requested-With', 'XMLHttpRequest');
-        headers.append('Authorization', 'Basic ' + this.authCreds);
-        return this.http.put(USER_URL + '/' + user.id, body, { headers: headers })
-        .map(response => {
-            if (current) {
-            this.getUser(user.id).subscribe(
-                user => this.user = user,
-                error => error
-            );
-            }
-            return response.json();
-        })
-        .catch(error => Observable.throw('Server error'));
+    newUser(nombre: string, apellido: string, correo:string, password: string) {
+        let newUser: User;
+        newUser = {nombre: nombre, correo: correo, apellidos:apellido, passwordHash: password, profileImage: null, goats: null, following: null, news: null, comments: null};
+        const headers = new Headers({
+                'Content-Type': 'application/json',
+      //'X-Requested-With': 'XMLHttpRequest'
+        });
+        return this.http.post(BASE_URL + "register/" ,newUser, headers)
     }
+    updateUser(user: User): Promise<User> {
+        const headers = new Headers({
+            'Authorization': 'Basic ' + this.authService.getCredentials(),
+            'Content-Type': 'application/json'
+        });
+        const options = new RequestOptions({ headers });
+        return this.http.put(USER_URL, JSON.stringify(user), options)
+            .toPromise()
+            .then(response => response.json())
+            .catch(error => console.error(error));
+    }
+
+    removeUser(id: number): Promise<any> {
+        const headers = new Headers({
+            'Authorization': 'Basic ' + this.authService.getCredentials()
+        });
+        const options = new RequestOptions({ headers });
+        return this.http.delete(USER_URL + id, options)
+            .toPromise()
+            .then(undefined)
+            .catch(error => console.error(error));
+    }
+
+
+    followGoat(id: number): Promise<User>{
+        const headers = new Headers({
+            'Authorization': 'Basic ' + this.authService.getCredentials(),
+            'Content-Type': 'application/json'
+        });
+        const options = new RequestOptions({ headers });
+        let body;
+        return this.http.put(USER_URL + "cabra/" + id + "/follow", body , options)
+            .toPromise()
+            .then(response => response.json())
+            .catch(error => console.error(error));
+    }
+
+    unfollowGoat(id: number): Promise<Goat>{
+        const headers = new Headers({
+            'Authorization': 'Basic ' + this.authService.getCredentials(),
+            'Content-Type': 'application/json'
+        });
+        const options = new RequestOptions({ headers });
+        let body;
+        return this.http.put(USER_URL + "cabra/" + id + "/unfollow", body,options)
+            .toPromise()
+            .then(response => response.json())
+            .catch(error => console.error(error));       
+    }
+
+    purchaseGoat(id: number): Promise<Goat>{
+        const headers = new Headers({
+            'Authorization': 'Basic ' + this.authService.getCredentials()
+        });
+        const options = new RequestOptions({ headers });
+        let body;
+        return this.http.put(USER_URL + "cabra/" + id + "/purchase", body,options)
+            .toPromise()
+            .then(response => response.json())
+            .catch(error => console.error(error));       
+    }
+    eresElUsuario(id: number): boolean{
+
+        return this.authService.getUser().id === id;
+    }
+
+    /**
+    uploadFile(formData): Promise<any> {
+        const headers = new Headers({
+            'Authorization': 'Basic ' + this.authService.getCredentials()
+        });
+        const options = new RequestOptions({ headers });
+        return this.http.post(userStorageUrl, formData, options)
+            .toPromise()
+            .then(response => response.json())
+            .catch(error => console.error(error));
+    }*/
 }
