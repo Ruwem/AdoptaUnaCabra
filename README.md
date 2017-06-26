@@ -28,4 +28,4 @@ Esquema
 
 <img src="/index.PNG"/>
 
-(https://youtu.be/4Zc55rl4tDg)
+Demo de la práctica ---> (https://youtu.be/4Zc55rl4tDg)
