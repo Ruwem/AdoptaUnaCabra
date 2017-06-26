@@ -26,10 +26,12 @@ Esquema
 
 <img src="/Diagrama de base de datos.png"/>
 
+<img src="/diagrama 1.png"/>
+
+<img src="/diagrama 2.png"/>
+
 <img src="/index.PNG"/>
 
-<img src="/diagrama 1"/>
 
-<img src="/diagrama 2"/>
 
 Demo de la práctica ---> (https://youtu.be/4Zc55rl4tDg)
