@@ -28,4 +28,8 @@ Esquema
 
 <img src="/index.PNG"/>
 
+<img src="/diagrama 1"/>
+
+<img src="/diagrama 2"/>
+
 Demo de la práctica ---> (https://youtu.be/4Zc55rl4tDg)
