@@ -27,3 +27,5 @@ Esquema
 <img src="/Diagrama de base de datos.png"/>
 
 <img src="/index.PNG"/>
+
+(https://youtu.be/4Zc55rl4tDg)
