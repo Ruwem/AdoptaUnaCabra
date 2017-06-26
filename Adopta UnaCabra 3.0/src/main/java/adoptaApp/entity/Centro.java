@@ -26,7 +26,7 @@ public class Centro {
 	
 	@JsonView(Basic.class)
 	private String nombre;
-	
+	@JsonView(Basic.class)
 	private String profileImage;
 	@JsonView(Basic.class)
 	private String lugar;

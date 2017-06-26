@@ -6,6 +6,8 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -36,10 +38,12 @@ import adoptaApp.security.UserAuthComponent;
 public class CabraRestController {
 	
 	public interface CabraDetail extends Cabra.Basic,Noticia.NoGoats,Persona.LoginInt{}
-	
+	public interface UserDetail extends Persona.LoginInt{}
+	public interface NewsDetail extends Noticia.NoGoats{}
+	private static final Logger log = LoggerFactory.getLogger(LoginRestController.class);
 	@Autowired
 	private CabraRepository cabraServ;
-	@Autowired
+	@Autowired 
 	private UserAuthComponent logger;
 	
 	@JsonView(CabraDetail.class)
@@ -48,7 +52,7 @@ public class CabraRestController {
 		return cabraServ.findAll();
 	}
 	
-
+	@JsonView(CabraDetail.class)
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Cabra> getCabra(@PathVariable Integer id) {
 
@@ -59,7 +63,54 @@ public class CabraRestController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
+	@JsonView(UserDetail.class)
+	@RequestMapping(value = "/{id}/owner", method = RequestMethod.GET)
+	public ResponseEntity<Persona> getOwner(@PathVariable Integer id){
+		Cabra cabra = cabraServ.findOne(id);
+		if(cabra != null){
+			if (cabra.getOwner() != null){
+				return  new ResponseEntity<>(cabra.getOwner(),HttpStatus.OK);
+			}
+		}else{
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);	
+	}
+	@JsonView(NewsDetail.class)
+	@RequestMapping(value = "/{id}/news", method = RequestMethod.GET)
+	public List<Noticia> getNews(@PathVariable Integer id){
+		Cabra cabra = cabraServ.findOne(id);
+		if(cabra != null){
+			if (cabra.getNews() != null){
+				return cabra.getNews();
+			}
+		}
+		return null;		
+	}
+	
+	
+	@RequestMapping(value = "/{id}/isFollowing", method = RequestMethod.GET)
+	public boolean isFollowing(@PathVariable Integer id, HttpSession session){
+		Cabra cabra = cabraServ.findOne(id);
+		if (cabra != null){
+			log.info("cabra no es null");
+			if(logger.isLoggedUser()){
+				session.setMaxInactiveInterval(-1);
+				log.info("hay un usuario loggeado");
+				if(logger.getLoggedUser().getFollowing().contains(cabra)){
+					log.info(logger.getLoggedUser().getNombre());
+					return true;
+				}
+			}else{
+				log.info("Hago lo que me sale de la poya y me voy por aqui");
+			}
+		}
+		return false;
+	}
+	
 
+
+	@JsonView(CabraDetail.class)
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	public ResponseEntity<Cabra> addCabra(@RequestBody Cabra cabra, HttpSession session) {

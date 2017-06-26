@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -13,7 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import adoptaApp.entity.Cabra;
 import adoptaApp.entity.Persona;
+import adoptaApp.repository.CabraRepository;
 import adoptaApp.security.UserAuthComponent;
 import adoptaApp.services.UserService;
 
@@ -29,6 +32,8 @@ public class LoginRestController {
 	private UserService userService;
 	@Autowired 
 	private UserAuthComponent userAuth;
+	@Autowired
+	private CabraRepository cabraServ;
 
 	@JsonView(LoginDetail.class)
 	@RequestMapping(value = "logIn/")
@@ -71,4 +76,7 @@ public class LoginRestController {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 	}
+
+	
+	
 }

@@ -2,6 +2,7 @@ package adoptaApp.api;
 
 import java.io.File;
 import java.util.List;
+import java.util.Set;
 
 import javax.servlet.http.HttpSession;
 
@@ -34,6 +35,8 @@ public class PersonaRestController {
 	
 	
 	public interface UserDetail extends Persona.Basico,Cabra.NoOwner,Noticia.NoOwner{}
+	public interface CabraDetail extends Cabra.NoOwner{};
+	public interface NoticiaDetail extends Noticia.NoOwner{};
 	
 	@Autowired
 	private UserService userServ;
@@ -60,6 +63,40 @@ public class PersonaRestController {
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
+	}
+	
+	@JsonView(CabraDetail.class)
+	@RequestMapping(value = "/{id}/favs", method = RequestMethod.GET)
+	public Set<Cabra> getCabrasFavoritas(@PathVariable Integer id){
+		Persona user = userServ.findById(id);
+		if ( user != null){
+			if(user.getFollowing() != null){
+				return user.getFollowing();
+			}
+		}
+		return null;
+	}
+	@JsonView(CabraDetail.class)
+	@RequestMapping(value = "/{id}/goats", method = RequestMethod.GET)
+	public Set<Cabra> getCabras(@PathVariable Integer id){
+		Persona user = userServ.findById(id);
+		if ( user != null){
+			if(user.getFollowing() != null){
+				return user.getCabras();
+			}
+		}
+		return null;		
+	}
+	@JsonView(NoticiaDetail.class)
+	@RequestMapping(value = "/{id}/news", method = RequestMethod.GET)
+	public List<Noticia> getNews(@PathVariable Integer id){
+		Persona user = userServ.findById(id);
+		if ( user != null){
+			if(user.getNews() != null){
+				return user.getNews();
+			}
+		}
+		return null;		
 	}
 	
 	@RequestMapping(value = "/", method = RequestMethod.POST)

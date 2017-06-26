@@ -51,7 +51,7 @@ public class Cabra {
 		@JsonView({Basic.class, NoOwner.class})
 		private String sexo;
 		
-		@JsonView(Basic.class)
+		@JsonView({Basic.class, NoOwner.class})
 		private String profileImage;
 		
 		@OneToOne

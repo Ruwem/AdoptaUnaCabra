@@ -56,7 +56,7 @@ public class Persona {
 	private String apellidos;
 	
 	@Column
-	@JsonView(Basico.class)
+	@JsonView({Basico.class,LoginInt.class})
 	private String profileImage;
 	
 	@OneToMany(cascade = CascadeType.ALL,fetch=FetchType.EAGER)

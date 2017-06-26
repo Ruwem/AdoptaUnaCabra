@@ -29,6 +29,7 @@ import adoptaApp.entity.Comentario;
 import adoptaApp.entity.Noticia;
 import adoptaApp.entity.Persona;
 import adoptaApp.repository.NoticiaRepository;
+import adoptaApp.repository.PersonaRepository;
 import adoptaApp.security.UserAuthComponent;
 import adoptaApp.services.CabraService;
 import adoptaApp.services.NoticiaService;
@@ -41,6 +42,7 @@ public class NewsRestController {
 	
 	public interface NewsDetail extends Noticia.Basic, Cabra.NoOwner, Persona.LoginInt, Comentario.NoNews, Centro.Basic{}
 	
+	public interface ComentarioDetail extends Comentario.NoNews,Persona.LoginInt{}
 	@Autowired
 	private NoticiaService newsServ;
 	@Autowired
@@ -56,7 +58,7 @@ public class NewsRestController {
 	public List<Noticia> getNoticias() {
 		return newsServ.findAll();
 	}
-	
+
 	@JsonView(NewsDetail.class)
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Noticia> getNoticia(@PathVariable Integer id) {
@@ -68,7 +70,18 @@ public class NewsRestController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
-	
+
+	@JsonView(ComentarioDetail.class)
+	@RequestMapping(value = "/{id}/comments", method = RequestMethod.GET)
+	public List<Comentario> getComentarios (@PathVariable Integer id){
+		Noticia noticia = newsServ.findOne(id);
+		if( noticia != null){
+			if(noticia.getComentarios() != null){
+				return noticia.getComentarios();
+			}
+		}
+		return null;
+	}
 	
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)

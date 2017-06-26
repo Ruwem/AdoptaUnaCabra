@@ -28,7 +28,7 @@ public class Noticia {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@JsonView({Basic.class,NoOwner.class})
+	@JsonView({Basic.class,NoOwner.class,NoGoats.class})
 	private Integer id;
 	
 	@JsonView({Basic.class,NoOwner.class,NoGoats.class})
@@ -37,7 +37,7 @@ public class Noticia {
 	private String descripcion;
 	@JsonView({Basic.class,NoOwner.class,NoGoats.class})
 	private String cuerpo;
-	@JsonView(Basic.class)
+	@JsonView({Basic.class,NoGoats.class,NoOwner.class})
 	private String profileImage;
 	
 	private LocalDateTime date;
