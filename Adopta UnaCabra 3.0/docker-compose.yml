@@ -1,0 +1,30 @@
+version: "2.0"
+
+services: 
+  localhost:
+    image: auc_mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=1234
+      - MYSQL_DATABASE=auc_angular
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=1234
+  webapp:
+    image: auc
+    depends_on:
+      - localhost
+    ports:
+      - 8080:8080
+    environment:
+      - DATABASE_HOST=localhost
+      - DATABASE_USER=user
+      - DATABASE_PASSWORD=1234
+      - DATABASE_NAME=auc_angular
+      - DATABASE_PORT=3306
+  aucAngular:
+    image: auc-angular
+    depends_on:
+      - webapp
+    ports:
+      - 4200:80
+    environment:
+      - API_URL=webapp
